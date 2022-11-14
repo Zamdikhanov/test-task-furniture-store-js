@@ -95,20 +95,20 @@ body {
         margin: 0;
         z-index: -1;
         opacity: 0;
-        &:not(:disabled):not(:checked)+div:hover::before {
+        &:not(:disabled):not(:checked)+span:hover::before {
             border-color: $color_bg_accent;
         }
-        &:not(:disabled):active+div::before {
+        &:not(:disabled):active+span::before {
             background-color: #ecf1f2;
         }
-        &:focus+div::before {
+        &:focus+span::before {
             box-shadow: 0 0 0 0.5px #ecf1f2;
         }
-        &:checked+div::before {
+        &:checked+span::before {
             border: 1px solid $color_bg_accent;
             background-color: #fff;
         }
-        &:checked+div::after {
+        &:checked+span::after {
             position: absolute;
             content: "";
             width: 9px;
@@ -123,12 +123,12 @@ body {
         }
         &:checked+.mark::after {
             background-color: #fff;
-            background-image: url(../../img/icons/checkbox-ok.svg);
+            background-image: url(../img/icons/checkbox-ok.svg);
         }
-        &:checked+div {
+        &:checked+span {
             color: $color_bg_accent;
         }
-        &:checked+div:hover {
+        &:checked+span:hover {
             color: $color_bg_accent;
             font-weight: 500;
             letter-spacing: -0.022em;
@@ -190,20 +190,20 @@ body {
         margin: 0;
         z-index: -1;
         opacity: 0;
-        &:not(:disabled):not(:checked)+div:hover::before {
+        &:not(:disabled):not(:checked)+span:hover::before {
             border-color: $color_bg_accent;
         }
-        &:not(:disabled):active+div::before {
+        &:not(:disabled):active+span::before {
             background-color: #ecf1f2;
         }
-        &:focus+div::before {
+        &:focus+span::before {
             box-shadow: 0 0 0 0.5px #ecf1f2;
         }
-        &:checked+div::before {
+        &:checked+span::before {
             border: 1px solid $color_bg_accent;
             background-color: $color_bg_accent;
         }
-        &:checked+div::after {
+        &:checked+span::after {
             position: absolute;
             content: "";
             width: 19px;
@@ -213,10 +213,10 @@ body {
             bottom: 4px;
             background-color: #fff;
         }
-        &:checked+div {
+        &:checked+span {
             color: $color_bg_accent;
         }
-        &:checked+div:hover {
+        &:checked+span:hover {
             color: $color_bg_accent;
             font-weight: 500;
             letter-spacing: -0.022em;

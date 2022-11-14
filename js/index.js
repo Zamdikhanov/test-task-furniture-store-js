@@ -78,7 +78,7 @@ const step1 = document.forms.step1;
 const step2 = document.forms.step2;
 const step3 = document.forms.step3;
 const step4 = document.forms.step4;
-const step5 = document.querySelector("[name='step5']");
+const step5 = document.querySelector("[data-name='step5']");
 
 dialogNextButton.addEventListener("click", onClickNextStep);
 

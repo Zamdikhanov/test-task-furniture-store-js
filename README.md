@@ -17,4 +17,4 @@
 # Примечание
 
 Это третий вариант (для изучения), первый был выполнен в React https://zamdikhanov.github.io/test-task-furniture-store/
-второй был выполнен в React https://zamdikhanov.github.io/test-task-furniture-store-vue/
+второй был выполнен в Vue https://zamdikhanov.github.io/test-task-furniture-store-vue/
