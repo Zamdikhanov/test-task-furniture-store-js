@@ -1,0 +1,45 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+.submenu {
+    @include padding_left_right;
+    height: 70px;
+    width: 100%;
+    overflow-x: auto;
+    background-color: #ecf1f2;
+    box-shadow: 0px 4px 20px rgba(53, 53, 53, 0.18);
+    .subMunu__container {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+    .submenu__linkContainer {
+        height: 100%;
+        margin-right: 40px;
+        @media (min-width: 1200px) {
+            margin-right: 64px;
+        }
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+    .submenu__link {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        height: 100%;
+        text-decoration: none;
+        color: $color_text_main;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0;
+        transition: color ease-in-out 0.3s;
+        &:hover {
+            color: $color_text_accent;
+        }
+    }
+    .submenu__link_active {
+        box-shadow: inset 0 -2px 0 $color_text_accent;
+        color: $color_text_accent;
+    }
+}

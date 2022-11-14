@@ -1,0 +1,141 @@
+[name="step4"] {
+    .question {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: $color_text_main;
+        margin-bottom: 16px;
+        @media (min-width: 1200px) {
+            margin-bottom: 32px;
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+    .personBlock {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        flex: 0 1 auto;
+        @media (min-width: 1200px) {
+            gap: 24px;
+        }
+    }
+    .personBlock__inputContainer {
+        width: 100%;
+        margin-bottom: 24px;
+        @media (min-width: 500px) {
+            width: calc((100% - 1 * 16px) / 2);
+        }
+        @media (min-width: 768px) {
+            width: calc((100% - 2 * 16px) / 3);
+        }
+        @media (min-width: 1200px) {
+            width: calc((100% - 2 * 24px) / 3);
+            margin-bottom: 32px;
+        }
+        .input__label {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0;
+            margin-bottom: 16px;
+        }
+        .input__input {
+            width: 100%;
+            padding: 18px 16px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            border: 1px solid $color_bg_gray_dark;
+            border-radius: 3px;
+            &::placeholder {
+                color: $color_bg_gray_dark;
+            }
+            &:focus {
+                outline-color: $color_bg_accent;
+            }
+        }
+    }
+    .message {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin-bottom: 16px;
+        color: $color_text_main;
+        @media (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+    .dateBlock {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px 0;
+        flex-wrap: wrap;
+        flex: 0 1 auto;
+        @media (min-width: 1200px) {
+            gap: 24px 0;
+        }
+        .dateBlock__text {
+            display: none;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0;
+            margin-bottom: 24px;
+            @media (min-width: 1200px) {
+                display: block;
+                margin-right: 8px;
+                margin-bottom: 32px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0;
+            }
+        }
+        .dateBlock__input {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0;
+            padding: 18px 16px;
+            margin-right: 24px;
+            margin-bottom: 24px;
+            border: 1px solid $color_bg_gray_dark;
+            border-radius: 3px;
+            @media (min-width: 1200px) {
+                font-size: 16px;
+                line-height: 20px;
+                margin-bottom: 32px;
+            }
+            &:focus {
+                outline-color: $color_bg_accent;
+            }
+        }
+    }
+    .checkbox__empty {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        width: 320px;
+        height: 14px;
+        transform: translateX(100%);
+    }
+    .checkbox__inner {
+        display: inline;
+        padding-left: 6px;
+    }
+    .checkbox__maintext,
+    .checkbox__accenttext {
+        display: inline;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 150%;
+        color: #a9a9a9;
+        letter-spacing: 0;
+    }
+    .checkbox__accenttext {
+        color: $color_text_accent;
+    }
+}

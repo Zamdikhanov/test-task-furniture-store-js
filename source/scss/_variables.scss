@@ -1,0 +1,17 @@
+$color_bg_accent: #f2b030;
+$color_bg_black: #272727;
+$color_bg_gray_dark: #d3d3d3;
+$color_bg_icon: #e0e0e0;
+$color_bg_gray_light: #f4f4f4;
+$color_text_accent: #f2b030;
+$color_text_main: #272727;
+$color_text_light: #ffffff;
+//**************************//
+$padding_lr: 16px;
+@media (min-width: 375px) {
+    $padding_lr: 32px;
+}
+
+@media (min-width: 1200px) {
+    $padding_lr: 130px;
+}

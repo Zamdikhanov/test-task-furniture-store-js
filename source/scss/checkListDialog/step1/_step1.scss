@@ -1,0 +1,52 @@
+[name="step1"] {
+    .question {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: $color_text_main;
+        margin-bottom: 16px;
+        @media (min-width: 1200px) {
+            margin-bottom: 32px;
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+    .imageContainer {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        flex: 0 1 auto;
+        @media (min-width: 1200px) {
+            gap: 24px;
+        }
+    }
+    .imageContainer__imageBlock {
+        width: 100%;
+        @media (min-width: 360px) {
+            width: calc((100% - 1 * 16px) / 2);
+        }
+        @media (min-width: 650px) {
+            width: calc((100% - 2 * 16px) / 3);
+        }
+        @media (min-width: 768px) {
+            width: calc((100% - 3 * 16px) / 4);
+        }
+        @media (min-width: 1000px) {
+            width: calc((100% - 4 * 16px) / 5);
+        }
+        @media (min-width: 1200px) {
+            width: calc((100% - 4 * 24px) / 5);
+        }
+    }
+    .imageContainer__image {
+        display: block;
+        width: 100%;
+        max-height: 182px;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 8px;
+        @media (min-width: 1200px) {
+            margin-bottom: 24px;
+        }
+    }
+}

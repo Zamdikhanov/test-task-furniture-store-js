@@ -1,0 +1,29 @@
+[name="step5"].container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 140px;
+    @media (min-width: 768px) {
+        padding-top: 90px;
+    }
+    @media (min-width: 1200px) {
+        padding-top: 62px;
+    }
+    .title {
+        color: #1b1b1b;
+        text-align: center;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 44px;
+        margin-bottom: 16px;
+    }
+    .message {
+        color: #1b1b1b;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+        max-width: 388px;
+        @media (min-width: 1200px) {}
+    }
+}
