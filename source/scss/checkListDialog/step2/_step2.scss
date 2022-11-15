@@ -43,13 +43,52 @@
         margin-bottom: 25px;
         border: 1px solid #ecf1f2;
         border-radius: 2px;
+        .value__wrap {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            &::after {
+                content: " руб.";
+                position: absolute;
+                top: 11px;
+                right: 28px;
+                text-align: center;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0;
+                z-index: 10;
+            }
+        }
         .sliderContainer__value {
-            width: 50%;
-            text-align: center;
+            height: 100%;
+            width: 100%;
+            padding: 0 64px 0 8px;
+            text-align: right;
             font-weight: 400;
             font-size: 16px;
             line-height: 20px;
             letter-spacing: 0;
+            border: none;
+            border-radius: 1px;
+            &:first-child {
+                box-shadow: inset -0.5px 0px #ecf1f2;
+            }
+            &:last-child {
+                box-shadow: inset 0.5px 0px #ecf1f2;
+            }
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            &[type="number"] {
+                -moz-appearance: textfield;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: inset -1px -1px $color_bg_accent, inset 1px 1px $color_bg_accent;
+            }
         }
     }
     .sliderContainer__Containertip {
@@ -68,19 +107,36 @@
             color: rgba(20, 20, 20, 0.5);
         }
     }
-    .om-sliderrange-display {
-        display: none !important;
+    #range-slider {
+        padding: 0 9px;
     }
-    .om-sliderrange-range-indicator {
-        background-color: $color_bg_accent;
+    .noUi-target {
+        background: #ecf1f2;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
     }
-    .om-sliderrange-range:before {
-        background-color: #ecf1f2;
+    .noUi-horizontal {
+        height: 2px;
     }
-    .om-sliderrange-button-start,
-    .om-sliderrange-button-end {
+    .noUi-connect {
+        background: $color_bg_accent;
+    }
+    .noUi-horizontal .noUi-handle {
         width: 18px;
         height: 18px;
-        background-color: $color_bg_accent;
+        right: -9px;
+        top: -8px;
+    }
+    .noUi-handle {
+        border: 1px solid $color_bg_accent;
+        border-radius: 50%;
+        background: $color_bg_accent;
+        cursor: default;
+        box-shadow: none;
+    }
+    .noUi-handle:after,
+    .noUi-handle:before {
+        display: none;
     }
 }

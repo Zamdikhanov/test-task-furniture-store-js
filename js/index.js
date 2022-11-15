@@ -54,7 +54,6 @@ const progressPercent = [11.6, 50, 84.3, 100];
 const myModal = new HystModal({
     linkAttributeName: "data-hystmodal",
     beforeOpen: function() {
-        console.log('start');
         stepNumber = 0;
         onClickNextStep();
         swiper.disable();
@@ -148,29 +147,53 @@ function changeCheckbox() {
 // ***** Step2 *****
 
 const checkboxReady = step2.elements.readyBuy;
-const step2hidden = document.getElementById("step2hidden");
+const step2hiddenBlock = document.getElementById("step2hidden");
+const rangeSlider = document.getElementById('range-slider');
+const tipRange1 = document.getElementById('tipRange1')
+const tipRange2 = document.getElementById('tipRange2');
+const inputWithSlider1 = document.getElementById('inputWithSlider1');
+const inputWithSlider2 = document.getElementById('inputWithSlider2');
 
-OmRangeSlider.init({
-    min: 0,
-    max: 50000,
-    value: [2000, 25000],
-    unit: ' руб.',
+inputWithSlider1.addEventListener("change", e => setRangeSlider(e, 1));
+inputWithSlider2.addEventListener("change", e => setRangeSlider(e, 2));
+console.log("inputWithSlider1", inputWithSlider1.target);
+
+noUiSlider.create(rangeSlider, {
+    start: [2000, 25000],
+    margin: 1000,
+    connect: true,
+    step: 500,
+    range: {
+        'min': [0],
+        '25.8%': [2000, 1000],
+        '71%': [25000, 1000],
+        'max': [50000]
+    },
 });
-document.getElementById('inputPieces').addEventListener('rangechange', function(e) {
-    document.getElementById('displaySelectedRange1').innerText = e.detail[0] + ' руб.';
-    document.getElementById('displaySelectedRange2').innerText = e.detail[1] + ' руб.';
-    document.getElementById('tipRange1').innerText = e.detail[0] + ' руб.';
-    document.getElementById('tipRange2').innerText = e.detail[1] + ' руб.';
-}, true);
+
+rangeSlider.noUiSlider.on('update', function(values, handle) {
+    tipRange1.innerText = Math.round(values[0]) + ' руб.';
+    tipRange2.innerText = Math.round(values[1]) + ' руб.';
+    handle === 0 && (inputWithSlider1.value = Math.round(values[0]));
+    handle === 1 && (inputWithSlider2.value = Math.round(values[1]));
+});
+
+
+function setRangeSlider(e, index) {
+    index === 1 && (rangeSlider.noUiSlider.set([e.target.value, null]));
+    index === 2 && (rangeSlider.noUiSlider.set([null, e.target.value]));
+}
+
+
 
 
 function changeCheckboxStep2() {
     if (checkboxReady.checked) {
         dialogNextButton.removeAttribute("disabled");
-        step2hidden.setAttribute("style", "display: ''");
+        step2hiddenBlock.setAttribute("style", "display: ''");
     } else {
         dialogNextButton.setAttribute("disabled", "true");
-        step2hidden.setAttribute("style", "display: none");
+        step2hiddenBlock.setAttribute("style", "display: none");
     };
 }
 checkboxReady.addEventListener("change", changeCheckboxStep2);

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="./js/swiper-bundle.min.js" defer></script>
     <script src="./js/hystmodal.min.js" defer></script>
-    <script src="./js/om-javascript-range-slider.js" defer></script>
+    <script src="./js/nouislider.min.js" defer></script>
     <script src="./js/index.js" defer></script>
 </head>
 
@@ -365,10 +365,14 @@
                             <div class="question2">Укажите диапазон Вашего бюджета:</div>
                             <div class="sliderContainer">
                                 <div class="sliderContainer__valueContainer">
-                                    <div class="sliderContainer__value" id="displaySelectedRange1">0 руб</div>
-                                    <div class="sliderContainer__value" id="displaySelectedRange2">0 руб</div>
+                                    <div class="value__wrap">
+                                        <input class="sliderContainer__value" id="inputWithSlider1" type="number">
+                                    </div>
+                                    <div class="value__wrap">
+                                        <input class="sliderContainer__value" id="inputWithSlider2" type="number">
+                                    </div>
                                 </div>
-                                <input type="range" name="pieces" id="inputPieces" multiple value="2000,25000" min="0" max="50000" unit=" руб." style="width: 250px">
+                                <div id="range-slider"></div>
                                 <div class=" sliderContainer__Containertip ">
                                     <div class="sliderContainer__tip" id="tipRange1">0 руб</div>
                                     <div class="sliderContainer__tip" id="tipRange2">0 руб</div>
