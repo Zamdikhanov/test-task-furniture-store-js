@@ -6,7 +6,6 @@
 @import "./step4/step4";
 @import "./step5/step5";
 .modal {
-    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -16,6 +15,10 @@
     @media (min-width: 1200px) {
         padding-bottom: 152px;
     }
+}
+
+.hystmodal__shadow--show {
+    opacity: 0.4;
 }
 
 .modal__wrapper {

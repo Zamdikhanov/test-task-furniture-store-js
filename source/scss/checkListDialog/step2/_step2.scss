@@ -40,18 +40,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 25px;
+        margin-bottom: 24px;
         border: 1px solid #ecf1f2;
         border-radius: 2px;
         .value__wrap {
             position: relative;
             height: 100%;
             width: 100%;
-            &::after {
+            &::before {
                 content: " руб.";
                 position: absolute;
-                top: 11px;
-                right: 28px;
+                top: 10px;
+                right: 31px;
                 text-align: center;
                 font-weight: 400;
                 font-size: 16px;
@@ -63,7 +63,7 @@
         .sliderContainer__value {
             height: 100%;
             width: 100%;
-            padding: 0 64px 0 8px;
+            padding: 0 68px 0 8px;
             text-align: right;
             font-weight: 400;
             font-size: 16px;
@@ -109,34 +109,47 @@
     }
     #range-slider {
         padding: 0 9px;
-    }
-    .noUi-target {
-        background: #ecf1f2;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-    }
-    .noUi-horizontal {
-        height: 2px;
-    }
-    .noUi-connect {
-        background: $color_bg_accent;
-    }
-    .noUi-horizontal .noUi-handle {
-        width: 18px;
-        height: 18px;
-        right: -9px;
-        top: -8px;
-    }
-    .noUi-handle {
-        border: 1px solid $color_bg_accent;
-        border-radius: 50%;
-        background: $color_bg_accent;
-        cursor: default;
-        box-shadow: none;
-    }
-    .noUi-handle:after,
-    .noUi-handle:before {
-        display: none;
+        &.noUi-target {
+            background: transparent;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+        }
+        &.noUi-horizontal {
+            height: 18px;
+            cursor: pointer;
+        }
+        .noUi-connects {
+            height: 2px;
+            width: 100%;
+            top: 8px;
+            background: #ecf1f2;
+            box-shadow: 9px 0 #ecf1f2, -9px 0 #ecf1f2;
+        }
+        .noUi-connect {
+            background: $color_bg_accent;
+        }
+        .noUi-handle {
+            border: 2px solid $color_bg_accent;
+            border-radius: 50%;
+            background-color: $color_bg_accent;
+            cursor: default;
+            box-shadow: none;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            top: 0px;
+            transition: background-color ease-in-out 0.3s;
+            &:hover {
+                background-color: #fff;
+            }
+        }
+        .noUi-touch-area {
+            cursor: pointer;
+        }
+        .noUi-handle:after,
+        .noUi-handle:before {
+            display: none;
+        }
     }
 }

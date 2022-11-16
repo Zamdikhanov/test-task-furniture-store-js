@@ -54,6 +54,11 @@
             &:focus {
                 outline-color: $color_bg_accent;
             }
+            &.input__input_error {
+                outline-color: red;
+                border: 1px solid red;
+                background-color: antiquewhite;
+            }
         }
     }
     .message {

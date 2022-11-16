@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./logo192.png" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Интернет магазин" />
     <title>test task furniture store</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="./js/swiper-bundle.min.js" defer></script>
@@ -47,7 +51,7 @@
                     fill="current" />
             </svg>
         </a>
-        <button class="burger" type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav">
+        <button class="burger" type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav" data-hystmodal-menu="#burgerModal">
             <span></span>
         </button>
         <div class="header__content">
@@ -437,20 +441,24 @@
                         <div class="personBlock ">
                             <div class="personBlock__inputContainer ">
                                 <label>
-                                    <span class="input__label ">Ваше имя</span>
-                                    <input class="input__input " type="text" placeholder="Анастасия " name="name">
+                                    <span class="input__label">Ваше имя</span>
+                                    <input class="input__input" type="text" placeholder="Анастасия" name="name"
+                                        id="name" data-reg="^[а-яА-ЯёЁa-zA-Z]+ ?[а-яА-ЯёЁa-zA-Z]+$">
                                 </label>
                             </div>
                             <div class="personBlock__inputContainer ">
                                 <label>
                                     <span class="input__label ">Телефон</span>
-                                    <input class="input__input " type="tel" placeholder="+7 999 999 99 99 " name="tel">
+                                    <input class="input__input " type="tel" placeholder="+7 999 999 99 99 " name="tel"
+                                        id="tel"
+                                        data-reg="^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$">
                                 </label>
                             </div>
                             <div class="personBlock__inputContainer ">
                                 <label>
                                     <span class="input__label ">E-mail</span>
-                                    <input class="input__input " type="email" placeholder="123@gmail.com" name="email">
+                                    <input class="input__input " type="email" placeholder="123@gmail.com" name="email"
+                                        id="email" data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$">
                                 </label>
                             </div>
                         </div>
@@ -498,6 +506,63 @@
                         Далее
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hystmodal" id="burgerModal" aria-hidden="true">
+        <div class="hystmodal__wrap modal">
+            <div class="hystmodal__window burger__content" role="menu" aria-modal="true">
+                <button class="menu__closeButton" type="button" data-hystclose>
+                    <svg class="menu__closeButtonSvg" width="20" height="20" viewBox="0 0 20 20" fill="current"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 2.575L17.425 1L10 8.425L2.575 1L1 2.575L8.425 10L1 17.425L2.575 19L10 11.575L17.425 19L19 17.425L11.575 10L19 2.575Z"
+                            fill="current" />
+                    </svg>
+                </button>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__listItem">
+                            <a class="nav__link" href="#" data-hystclose>
+                                О нас
+                            </a>
+                        </li>
+                        <li class="nav__listItem">
+                            <a class="nav__link" href="#" data-hystclose>
+                                Оплата и доставка
+                            </a>
+                        </li>
+                        <li class="nav__listItem">
+                            <a class="nav__link" href="#" data-hystclose>
+                                Новости
+                            </a>
+                        </li>
+                        <li class="nav__listItem">
+                            <a class="nav__link" href="#" data-hystclose>
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <address class="header__contacts">
+                    <div class="contacts__position">
+                        <svg class="contacts__positionIcon" width="17" height="25" viewBox="0 0 17 25" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.5 0C3.8131 0 0 3.85087 0 8.5842C0 10.1834 0.438647 11.7441 1.26881 13.0982L8.01616 24.0791C8.14541 24.2895 8.37311 24.4173 8.61801 24.4173C8.6199 24.4173 8.62174 24.4173 8.62363 24.4173C8.87065 24.4153 9.09883 24.2836 9.22571 24.0695L15.8011 12.9822C16.5854 11.6568 17 10.136 17 8.5842C17 3.85087 13.1869 0 8.5 0ZM14.5853 12.2477L8.60729 22.3278L2.47289 12.3444C1.78188 11.2174 1.40722 9.91714 1.40722 8.5842C1.40722 4.63976 4.59425 1.42116 8.5 1.42116C12.4058 1.42116 15.5881 4.63976 15.5881 8.5842C15.5881 9.87761 15.2381 11.1446 14.5853 12.2477Z"
+                                fill="white" />
+                            <path
+                                d="M8.49647 3.61743C5.89259 3.61743 3.77417 5.64587 3.77417 8.13915C3.77417 10.6165 5.85812 12.6609 8.49647 12.6609C11.1673 12.6609 13.2188 10.5893 13.2188 8.13915C13.2188 5.64587 11.1003 3.61743 8.49647 3.61743ZM8.49647 11.1637C6.75147 11.1637 5.33777 9.80551 5.33777 8.13915C5.33777 6.47697 6.76055 5.11462 8.49647 5.11462C10.2324 5.11462 11.6499 6.47697 11.6499 8.13915C11.6499 9.78119 10.2691 11.1637 8.49647 11.1637Z"
+                                fill="white" />
+                        </svg>
+                        Ульяновск
+                    </div>
+                    <a class="contacts__telephoneBlock" href="tel:+79997778866">
+                        <div class="contacts__telephoneNumber">+7 999 777 88 66</div>
+                        <div class="contacts__telephoneMessage">Заказать звонок</div>
+                    </a>
+                </address>
             </div>
         </div>
     </div>

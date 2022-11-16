@@ -1,15 +1,8 @@
 // ***** burger *****
 
-const burgerButton = document.querySelector(".burger");
-const mobileMenu = document.querySelector(".header__content");
-
-burgerButton.addEventListener("click", onMenuClick);
-mobileMenu.addEventListener("click", onMenuClick);
-
-function onMenuClick() {
-    burgerButton.classList.toggle("menu_button__active");
-    mobileMenu.classList.toggle("header__content_showOnMobile");
-}
+const menuModal = new HystModal({
+    linkAttributeName: "data-hystmodal-menu",
+});
 
 // ***** subMenu *****
 
@@ -156,7 +149,6 @@ const inputWithSlider2 = document.getElementById('inputWithSlider2');
 
 inputWithSlider1.addEventListener("change", e => setRangeSlider(e, 1));
 inputWithSlider2.addEventListener("change", e => setRangeSlider(e, 2));
-console.log("inputWithSlider1", inputWithSlider1.target);
 
 noUiSlider.create(rangeSlider, {
     start: [2000, 25000],
@@ -178,14 +170,10 @@ rangeSlider.noUiSlider.on('update', function(values, handle) {
     handle === 1 && (inputWithSlider2.value = Math.round(values[1]));
 });
 
-
 function setRangeSlider(e, index) {
     index === 1 && (rangeSlider.noUiSlider.set([e.target.value, null]));
     index === 2 && (rangeSlider.noUiSlider.set([null, e.target.value]));
 }
-
-
-
 
 function changeCheckboxStep2() {
     if (checkboxReady.checked) {
@@ -221,25 +209,50 @@ function changeCheckboxStep3() {
 
 // ***** Step4 *****
 
-const personName = step4.elements.name;
-const tel = step4.elements.tel;
-const email = step4.elements.email;
-const date = step4.elements.date;
-const timeFrom = step4.elements.timeFrom;
-const timeTo = step4.elements.timeTo;
-const agree = step4.elements.agree;
-personName.addEventListener("change", changeCheckboxStep4);
-tel.addEventListener("change", changeCheckboxStep4);
-email.addEventListener("change", changeCheckboxStep4);
-date.addEventListener("change", changeCheckboxStep4);
-timeFrom.addEventListener("change", changeCheckboxStep4);
-timeTo.addEventListener("change", changeCheckboxStep4);
-agree.addEventListener("change", changeCheckboxStep4);
+const formArr = Array.from(step4);
+const validFormArr = [];
 
-function changeCheckboxStep4() {
-    if (personName.value && tel.value && email.value && date.value && timeFrom.value && timeTo.value && agree.checked) {
+formArr.forEach((el) => {
+    if (el.hasAttribute("data-reg")) {
+        el.setAttribute("data-is-valid", "0");
+        validFormArr.push(el);
+    }
+});
+
+step4.addEventListener("input", changeCheckboxStep4);
+
+function changeCheckboxStep4(e) {
+    if (e.target && e.target.hasAttribute("data-reg")) {
+        inputCheck(e.target);
+    }
+    let hasDataInputsStep4 = formArr.reduce((acc, current, index) => {
+        console.log(`inputVal ${index} `, current.value);
+        console.log(`inputChe ${index} `, current.checked);
+        return !!(acc && (current.type === "checkbox" ? current.checked : current.value));
+    }, true);
+    const allValid = [];
+    validFormArr.forEach((el) => {
+        allValid.push(+el.getAttribute("data-is-valid"));
+    });
+    const isAllValid = allValid.reduce((acc, current) => {
+        return acc && current;
+    });
+    if (hasDataInputsStep4 && isAllValid) {
         dialogNextButton.removeAttribute("disabled")
     } else {
         dialogNextButton.setAttribute("disabled", "true");
     };
 };
+
+function inputCheck(el) {
+    const inputValue = el.value;
+    const inputReg = el.getAttribute("data-reg");
+    const reg = new RegExp(inputReg);
+    if (reg.test(inputValue)) {
+        el.classList.remove("input__input_error");
+        el.setAttribute("data-is-valid", "1");
+    } else {
+        el.classList.add("input__input_error");
+        el.setAttribute("data-is-valid", "0");
+    }
+}
