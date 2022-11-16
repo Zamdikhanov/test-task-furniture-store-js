@@ -1223,7 +1223,7 @@ select {
 .swiper [class~=swiper-pagination] {
   display: inline-block;
   padding-left: 16px;
-  padding-right: 24px;
+  padding-right: 20px;
 }
 @media (min-width: 575px) {
   .swiper [class~=swiper-pagination] {
@@ -1320,6 +1320,9 @@ select {
   margin-right: 20px !important;
   position: relative;
 }
+.swiper [class~=swiper-pagination-bullet]:last-child {
+  margin-right: 0px !important;
+}
 @media (min-width: 375px) {
   .swiper [class~=swiper-pagination-bullet] {
     width: 35px;
@@ -1362,12 +1365,14 @@ select {
   position: absolute;
   display: inline-block;
   height: 46px;
+  width: max-content;
   font-weight: 600;
   font-size: 18px;
   line-height: 46px;
   letter-spacing: 0.1em;
   bottom: 196px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 @media (min-width: 477px) {
   .swiper__counter {
@@ -1376,6 +1381,8 @@ select {
 }
 @media (min-width: 1200px) {
   .swiper__counter {
+    left: auto;
+    transform: translateX(0%);
     bottom: 52px;
   }
 }

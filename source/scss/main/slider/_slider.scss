@@ -36,7 +36,7 @@
     [class~="swiper-pagination"] {
         display: inline-block;
         padding-left: 16px;
-        padding-right: 24px;
+        padding-right: 20px;
         @media (min-width: 575px) {
             @include padding_left_right;
         }
@@ -54,6 +54,9 @@
         opacity: 1;
         margin-right: 20px !important;
         position: relative;
+        &:last-child {
+            margin-right: 0px !important;
+        }
         @media (min-width: 375px) {
             width: 35px;
             margin-right: 24px !important;
@@ -92,17 +95,21 @@
     position: absolute;
     display: inline-block;
     height: 46px;
+    width: max-content;
     font-weight: 600;
     font-size: 18px;
     line-height: 46px;
     letter-spacing: 0.1em;
     bottom: 196px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     @media (min-width: 375px) {}
     @media (min-width: 477px) {
         bottom: 178px;
     }
     @media (min-width: 1200px) {
+        left: auto;
+        transform: translateX(0%);
         bottom: 52px;
     }
     .swiper__counterCurrent {

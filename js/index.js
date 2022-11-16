@@ -36,7 +36,7 @@ const swiper = new Swiper('.swiper', {
 const slideRealIndex = document.querySelector(".swiper__counterCurrent");
 
 swiper.on('slideChange', function() {
-    slideRealIndex.innerText = swiper.realIndex + 1;
+    slideRealIndex.innerText = `0${swiper.realIndex + 1}`;
 });
 
 // ***** CheckListDialog *****
