@@ -1229,6 +1229,7 @@ select {
   .swiper [class~=swiper-pagination] {
     padding-left: 16px;
     padding-right: 16px;
+    padding-right: 20px;
   }
 }
 @media (min-width: 575px) and (min-width: 376px) {
@@ -1272,6 +1273,7 @@ select {
     padding-left: 16px;
     padding-right: 16px;
     text-align: left;
+    padding-right: 32px !important;
   }
 }
 @media (min-width: 1200px) and (min-width: 376px) {
@@ -1308,6 +1310,16 @@ select {
   .swiper [class~=swiper-pagination] {
     padding-left: calc(50vw - 830px);
     padding-right: calc(50vw - 830px);
+  }
+}
+@media (min-width: 1600px) {
+  .swiper [class~=swiper-pagination] {
+    padding-right: 32px !important;
+  }
+}
+@media (min-width: 1920px) {
+  .swiper [class~=swiper-pagination] {
+    padding-right: 32px !important;
   }
 }
 .swiper [class~=swiper-pagination-bullet] {
