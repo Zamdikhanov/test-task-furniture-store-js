@@ -226,8 +226,6 @@ function changeCheckboxStep4(e) {
         inputCheck(e.target);
     }
     let hasDataInputsStep4 = formArr.reduce((acc, current, index) => {
-        console.log(`inputVal ${index} `, current.value);
-        console.log(`inputChe ${index} `, current.checked);
         return !!(acc && (current.type === "checkbox" ? current.checked : current.value));
     }, true);
     const allValid = [];

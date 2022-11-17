@@ -424,6 +424,16 @@ select {
     padding: 32px 40px;
   }
 }
+@media (min-width: 576px) {
+  .header__contacts {
+    padding: 32px 48px;
+  }
+}
+@media (min-width: 768px) {
+  .header__contacts {
+    padding: 32px 56px;
+  }
+}
 @media (min-width: 1200px) {
   .header__contacts {
     padding: 0;
